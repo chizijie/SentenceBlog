@@ -10,7 +10,10 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: home
+      component: home,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/article/:id?',

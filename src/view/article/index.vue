@@ -40,7 +40,9 @@ export default {
     let This = this
     let id = this.$route.params.id
     console.log(id)
-    this.axios.post(`/txtBlog/?p=${id}&json=1`)
+    // txtBlog
+    // http://120.78.175.25/wordpress
+    this.axios.get(`/txtBlog/?p=${id}&json=1`)
       .then(function (res) {
         This.data = res.data.post
         This.musicShow = true

@@ -36,7 +36,9 @@ export default {
   },
   created () {
     let This = this
-    this.axios.post('/txtBlog/?json=1')
+    // txtBlog
+    // http://120.78.175.25/wordpress
+    this.axios.get('/txtBlog/?json=1')
       .then(function (res) {
         This.article = res.data.posts
         console.log(res.data.posts)
