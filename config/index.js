@@ -12,6 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/txtBlog': {
+        // http://120.78.175.25/wordpress/wp-json/wp/v2/
         target: 'http://120.78.175.25/wordpress/',//设置你调用的接口域名和端口号 别忘了加http
         changeOrigin: true,
         pathRewrite: {

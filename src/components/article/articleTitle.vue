@@ -58,6 +58,7 @@ export default {
         position: relative
         display: block;
         max-width: 100%;
+        width 680px
         height 440px;
         top: 0
         transition .5s

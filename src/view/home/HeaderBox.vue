@@ -18,7 +18,7 @@
     <div class="mark" @mouseover.stop :style="'border-color:transparent transparent' + data.tags[0].title + data.tags[0].title">
     </div>
     <div class="Box" ref="Box">
-      <img :src="data.thumbnail_images.full.url" alt="">
+      <img id="image" :src="data.thumbnail_images.full.url" alt="">
     </div>
   </header>
 </template>

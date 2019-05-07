@@ -35,12 +35,13 @@ export default {
     pudateArticele (data) {
       console.log(data)
       let id = data.id
+      let This = this
       // txtBlog
       // http://120.78.175.25/wordpress
-      this.axios.get(`/txtBlog/?json=get_categories_posts&categories_id=${id}`)
+      this.axios.get(`/txtBlog/?json=get_category_posts&category_id=${id}`)
         .then(function (res) {
-          // This.$store.state.article = res.data.posts
-          console.log(res.data)
+          This.$store.state.article = res.data.posts
+          console.log(res.data.posts)
         })
         .catch(function (err) {
           if (err.response) {
