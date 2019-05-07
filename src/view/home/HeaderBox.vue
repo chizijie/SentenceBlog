@@ -1,5 +1,8 @@
 <template>
   <header ref="headerHei" @mousemove="aa($event)" @mouseover="ss($event)">
+    <nav @mouseover.stop>
+      <tag-box></tag-box>
+    </nav>
     <div class="markTxt" @mouseover.stop>
       <div class="markBox">
         <p class="date">{{data.date}}</p>
@@ -21,8 +24,12 @@
 </template>
 
 <script>
+import tagBox from './tag'
 export default {
   name: 'HeaderBox',
+  components: {
+    tagBox
+  },
   props: {
     data: {
       default: {
@@ -76,6 +83,11 @@ header
   background #ffe1e1
   overflow hidden
   position relative
+  nav
+    position absolute
+    top 30px
+    right 30px
+    z-index 6
   .Box
     width 120%
     height 110%
@@ -105,13 +117,13 @@ header
     opacity .7
   .markTxt
     position absolute
-    width 100%
+    width 74%
     top 50%
     left 10%
     z-index 6;
   .markBox
     color #fff
-    width 28%
+    width 35%
     .date
       font-size 12px
     h2

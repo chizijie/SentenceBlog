@@ -6,6 +6,10 @@ import router from './router'
 import './assets/css/app.css'
 import axios from 'axios'
 import Qs from 'qs'
+import store from './store'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 Vue.prototype.axios = axios
 Vue.prototype.qs = Qs
 
@@ -15,6 +19,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

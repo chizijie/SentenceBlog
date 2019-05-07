@@ -3,6 +3,9 @@
     <header-box
       :data="article[0]"
     ></header-box>
+    <!--<nav @mouseover.stop>-->
+      <!--<tag-box></tag-box>-->
+    <!--</nav>-->
     <main>
       <article-title
         :data="article"
@@ -34,24 +37,15 @@ export default {
       ]
     }
   },
-  created () {
-    let This = this
-    // txtBlog
-    // http://120.78.175.25/wordpress
-    this.axios.get('/txtBlog/?json=1')
-      .then(function (res) {
-        This.article = res.data.posts
-        console.log(res.data.posts)
-        // 控制台打印请求成功时返回的数据
-        // bind(this)可以不用
-      })
-      .catch(function (err) {
-        if (err.response) {
-          console.log(err.response)
-          // 控制台打印错误返回的内容
-        }
-        // bind(this)可以不用
-      })
+  computed: {
+    pudateData () {
+      return this.$store.state.article
+    }
+  },
+  watch: {
+    pudateData (to) {
+      this.article = to
+    }
   }
 }
 </script>
@@ -60,6 +54,7 @@ export default {
   .home
     width 100%
     padding-bottom 100px
+    position relative
     main
       width 1200px
       overflow hidden
