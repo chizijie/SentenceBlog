@@ -42,7 +42,7 @@ export default {
     console.log(id)
     // txtBlog
     // http://120.78.175.25/wordpress
-    this.axios.get(`/txtBlog/?p=${id}&json=1`)
+    this.axios.get(`${this.$store.state.ureHeader}?p=${id}&json=1`)
       .then(function (res) {
         This.data = res.data.post
         This.musicShow = true
@@ -96,4 +96,14 @@ export default {
           font-size 14px
         p
           text-indent 2rem
+  @media screen and (max-width: 400px) {
+    .article main {
+      width 100%
+      padding 0 18px 0 20px
+      box-sizing border-box
+    }
+    .article .t{
+      transition 0s
+    }
+  }
 </style>

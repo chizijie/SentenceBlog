@@ -6,14 +6,22 @@ let store = new Vuex.Store({
   // 定义数据
   state: {
     article: [{
+      thumbnail_images: {
+        full: {
+          url: 'https://isujin.com/wp-content/uploads/2018/05/wallhaven-633714.jpg'
+        }
+      },
       tags: [{}]
-    }]
+    }],
+    ureHeader: 'http://120.78.175.25/wordpress/',
+    homeUrlOff: false,
+    homeUrl: ''
   },
   // 修改state数据，也是唯一能修改state数据的方法
   mutations: {
     // 定义的方法，参数一: 行参，填入任何字母都可以。  参数二: 传参。
-    updateP (state, upadte) {
-      state.p += upadte
+    updatearticle (state, upadte) {
+      state.article.push(...upadte)
     }
   },
   // 类似于计算属性

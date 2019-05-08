@@ -1,42 +1,23 @@
 <template>
-  <div class="home">
-    <header-box
-      :data="article[0]"
-    ></header-box>
-    <!--<nav @mouseover.stop>-->
-      <!--<tag-box></tag-box>-->
-    <!--</nav>-->
-    <main>
-      <article-title
-        :data="article"
-      ></article-title>
-    </main>
+  <div class="phone">
+    <header-box></header-box>
+    <article-box :data="data"></article-box>
   </div>
 </template>
 
 <script>
-import HeaderBox from './HeaderBox'
-import articleTitle from '../../components/article/articleTitle'
+import headerBox from './HeaderBox'
+import articleBox from '../../../components/article/phone'
 export default {
   name: 'index',
   components: {
-    HeaderBox,
-    articleTitle
+    headerBox,
+    articleBox
   },
   data () {
     return {
-      article: [
-        {
-          tags: [{}],
-          thumbnail_images: {
-            full: {
-              url: 'https://isujin.com/wp-content/uploads/2018/05/wallhaven-633714.jpg'
-            }
-          }
-        }
-      ],
-      url: '',
       pag: 1,
+      url: '',
       urlOff: true
     }
   },
@@ -52,8 +33,7 @@ export default {
         This.axios.get(This.url + This.pag)
           .then(function (res) {
             This.$store.state.homeUrlOff = true
-            This.article.push(...res.data.posts)
-            console.log(res.data.posts)
+            This.$store.state.article.push(...res.data.posts)
           })
           .catch(function (err) {
             if (err.response) {
@@ -66,7 +46,7 @@ export default {
     })
   },
   computed: {
-    pudateData () {
+    data () {
       return this.$store.state.article
     },
     homeUrl () {
@@ -74,9 +54,6 @@ export default {
     }
   },
   watch: {
-    pudateData (to) {
-      this.article = to
-    },
     homeUrl (to) {
       this.pag = 1
       this.url = to
@@ -86,12 +63,14 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .home
-    width 100%
-    padding-bottom 100px
+  .phone
     position relative
-    main
-      width 1200px
-      overflow hidden
-      margin 0 auto
+  .phone::before
+    content ""
+    display block
+    position absolute
+    width 1px
+    height 100%
+    background #eaeaea
+    left calc(50% - 1px)
 </style>

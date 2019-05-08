@@ -54,7 +54,7 @@ export default {
       z-index: 3;
       top 0px
       transition .5s
-      img
+    a.imgBox >>> img
         position: relative
         display: block;
         max-width: 100%;
@@ -110,12 +110,12 @@ export default {
     left 20px
     height 400px
     top 20px
-    img
+    >>> img
       top -20px
   li:nth-child(even):hover a.imgBox
     right: 20px
     height: 400px
     top 20px
-    img
+    >>> img
       top -20px
 </style>

@@ -24,6 +24,7 @@
 <script>
 export default {
   name: 'tag',
+  inject: ['reload'],
   data () {
     return {
       show2: false,
@@ -36,11 +37,13 @@ export default {
       console.log(data)
       let id = data.id
       let This = this
+      this.reload()
       // txtBlog
       // http://120.78.175.25/wordpress
-      this.axios.get(`/txtBlog/?json=get_category_posts&category_id=${id}`)
+      this.axios.get(`${this.$store.state.ureHeader}/?json=get_category_posts&get_recent_posts&category_id=${id}&page=1`)
         .then(function (res) {
           This.$store.state.article = res.data.posts
+          This.$store.state.homeUrl = `${This.$store.state.ureHeader}?json=get_category_posts&get_recent_posts&category_id=${id}&page=`
           console.log(res.data.posts)
         })
         .catch(function (err) {
