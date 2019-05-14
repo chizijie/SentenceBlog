@@ -44,6 +44,7 @@ export default {
     // http://120.78.175.25/wordpress
     this.axios.get(`${this.$store.state.ureHeader}?p=${id}&json=1`)
       .then(function (res) {
+        This.$store.state.appLoading = false
         This.data = res.data.post
         This.musicShow = true
         console.log(res.data.post)
@@ -78,7 +79,7 @@ export default {
       height 4px
       width 0%
       background #b00e24
-      transition .5s
+      /*transition .5s*/
       position fixed
       top 0
       left 0

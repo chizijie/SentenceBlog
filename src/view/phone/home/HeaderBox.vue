@@ -1,5 +1,5 @@
 <template>
-  <header ref="headerHei" :style="'background-image: url(' + data.thumbnail_images.full.url + ')'">
+  <header ref="headerHei" :style="'background-image: url(' + data.thumbnail + ')'">
     <div class="mark" :style="'background-color:' +  data.tags[0].title"></div>
     <div class="markTxt">
       <div class="markBox">

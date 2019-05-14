@@ -37,13 +37,18 @@ export default {
       console.log(data)
       let id = data.id
       let This = this
-      this.reload()
-      // txtBlog
-      // http://120.78.175.25/wordpress
-      this.axios.get(`${this.$store.state.ureHeader}/?json=get_category_posts&get_recent_posts&category_id=${id}&page=1`)
+      let url
+      if (id) {
+        url = `${this.$store.state.ureHeader}/?json=get_category_posts&get_recent_posts&category_id=${id}&page=`
+        this.reload()
+      } else {
+        url = `${this.$store.state.ureHeader}?json=get_recent_posts&page=`
+        this.$router.replace('/')
+      }
+      this.axios.get(url + 1)
         .then(function (res) {
           This.$store.state.article = res.data.posts
-          This.$store.state.homeUrl = `${This.$store.state.ureHeader}?json=get_category_posts&get_recent_posts&category_id=${id}&page=`
+          This.$store.state.homeUrl = url
           console.log(res.data.posts)
         })
         .catch(function (err) {
@@ -62,7 +67,7 @@ export default {
     let This = this
     // txtBlog
     // http://120.78.175.25/wordpress
-    this.axios.get('/txtBlog/?json=get_category_index')
+    this.axios.get(`${this.$store.state.ureHeader}?json=get_category_index`)
       .then(function (res) {
         This.tagList = res.data.categories
         This.tagList.unshift({title: '首页'})

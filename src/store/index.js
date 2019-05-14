@@ -13,8 +13,12 @@ let store = new Vuex.Store({
       },
       tags: [{}]
     }],
+    // /txtBlog/
+    // http://120.78.175.25/wordpress/
     ureHeader: 'http://120.78.175.25/wordpress/',
+    // 该值用于限制页面刷新的时候，首页进行请求，请求成功之后滚动条跳动，请求第二页的文章
     homeUrlOff: false,
+    appLoading: true,
     homeUrl: ''
   },
   // 修改state数据，也是唯一能修改state数据的方法

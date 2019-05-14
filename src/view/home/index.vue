@@ -11,6 +11,9 @@
         :data="article"
       ></article-title>
     </main>
+    <div class="loading">
+      正在为您加载更多
+    </div>
   </div>
 </template>
 
@@ -86,6 +89,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+  .loading
+    width: max-content;
+    padding: 5px 10px;
+    border: 1px solid #eaeaea;
+    margin: 100px auto 0;
+    color: #898989;
   .home
     width 100%
     padding-bottom 100px

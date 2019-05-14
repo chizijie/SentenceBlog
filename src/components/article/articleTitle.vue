@@ -11,7 +11,7 @@
           class="imgBox"
           :to="'/article/' + item.id"
         >
-          <el-image :src="item.thumbnail_images.full.url" lazy></el-image>
+          <el-image :src="item.thumbnail" lazy></el-image>
           <!--<img width="680" height="440" :src="item.thumbnail_images.full.url" class="cover">-->
         </router-link>
         <div class="else">
